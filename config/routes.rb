@@ -1,4 +1,4 @@
-Consultanting::Application.routes.draw do
+ConsultingApp::Application.routes.draw do
   root :to => 'pages#index'
 
   match '/add', :to => 'consultants#new'
