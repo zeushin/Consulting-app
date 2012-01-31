@@ -1,4 +1,19 @@
-ConsultingApp::Application.routes.draw do
+Consultanting::Application.routes.draw do
+  root :to => 'pages#index'
+
+  match '/add', :to => 'consultants#new'
+  match '/addcareers', :to => 'careers#new'
+  match '/addbooks', :to => 'books#new'
+
+  match '/export', :to => 'pages#export_json'
+
+  resources :consultants
+  resources :careers
+  resources :books
+  resources :consultings
+  resources :news
+  resources :cautions
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
