@@ -1,0 +1,81 @@
+<ul class="">
+  <li>
+    <div class="profile_basic">
+      <div class="profile_basic_name">
+	<p><%= @consultant.name %></p>
+      </div>
+      <div class="profile_basic_department">
+	<p><%= @consultant.department %></p>
+      </div>
+      <div class="profile_basic_job">
+	<p><%= @consultant.job %></p>
+      </div>
+    </div>
+    
+    <div class="profile_career">
+      <div>주요 경력</div>
+      <ul class="profile_career_list">
+	<% @consultant.careers.each do |career| %>
+        <li>
+	  <span class="profile_career_list_year">
+	    <%= career.since_date %> ~ <%= career.until_date %>
+	  </span>
+	  <span class="profile_career_list_substance">
+	    <%= career.substance %>
+	  </span>
+	</li>
+	<% end %>
+      </ul>
+    </div>
+    
+    <div class="profile_book">
+      <div>주요 저서</div>
+      <ul class="prifile_book_list">
+	<% @consultant.books.each do |book| %>
+        <li>
+	  <span class="profile_boook_list_subject">
+	    <%= book.subject %>
+	  </span>
+	  <span class="profile_boook_list_author">
+	    <%= book.author %>
+	  </span>
+	  <span class="profile_boook_list_publisher">
+	    <%= book.publisher %>
+	  </span>
+	  <span class="profile_boook_list_year">
+	    <%= book.year %>
+	  </span>
+	</li>
+	<% end %>
+      </ul>
+    </div>
+    
+    <div class="profile_contacts">
+      <div>연락하기</div>
+      <ul class="profile_contacts_list">
+	<li class="profile_contacts_homepage">
+	  홈페이지 : <%= @consultant.homepage %>
+	</li>
+	<li class="profile_contacts_facebook">
+	  페이스북 : <%= @consultant.facebook %>
+	</li>
+	<li class="profile_contacts_twitter">
+	  트위터 : <%= @consultant.twitter %>
+	</li>
+	<li class="profile_contacts_email">
+	  이메일 : <%= @consultant.email %>
+	</li>
+	<li class="profile_contacts_phone">
+	  전화번호 : <%= @consultant.phone %>
+	</li>
+	<li class="profile_contacts_address">
+	  주소 : <%= @consultant.address %>
+	</li>
+      </ul>
+    </div>
+  </li>
+
+  <%= link_to "수정", new_consultant_path(:consultant_id => @consultant.id), :class => "button round" %>
+  <%= link_to "삭제", consultant_path(@consultant.id), :method => :delete, :class => "button round" %>
+
+</ul>

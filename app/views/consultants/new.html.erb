@@ -1,0 +1,44 @@
+<h1>Add Consultant</h1>
+
+<%= form_for(@consultant) do |f| %>
+<div class="field">
+  <%= f.label :이름 %><br />
+  <%= f.text_field :name %>
+</div>
+<div class="field">
+  <%= f.label :소속 %><br />
+  <%= f.text_field :department %>
+</div>
+<div class="field">
+  <%= f.label :직업 %><br />
+  <%= f.text_field :job %>
+</div>
+<div class="field">
+  <%= f.label :홈페이지 %><br />
+  <%= f.text_field :homepage %>
+</div>
+<div class="field">
+  <%= f.label :페이스북 %><br />
+  <%= f.text_field :facebook %>
+</div>
+<div class="field">
+  <%= f.label :트위터 %><br />
+  <%= f.text_field :twitter %>
+</div>
+<div class="field">
+  <%= f.label :이메일 %><br />
+  <%= f.text_field :email %>
+</div>
+<div class="field">
+  <%= f.label :전화번호 %><br />
+  <%= f.text_field :phone %>
+</div>
+<div class="field">
+  <%= f.label :주소 %><br />
+  <%= f.text_field :address %>
+</div>
+<div class="actions">
+  <%= f.submit "다음", :consultant_id => @consultant.id, :class => 'button round' %>
+</div>
+
+<% end %>

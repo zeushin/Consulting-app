@@ -1,0 +1,26 @@
+<h1>기사 링크</h1>
+
+<%= form_for(@news) do |f| %>
+
+<div class="field">
+  <%= f.label :링크주소 %>
+  <%= f.text_field :link_address, :value => "http://" %>
+</div>
+
+<%= f.hidden_field :consulting_id, :value => @consulting_id %>
+
+<div class="actions">
+  <%= f.submit "추가", :class => 'button round' %>
+</div>
+
+<% end %>
+
+<ul class="">
+  <% @newses.each do |n| %>
+  <li class="">
+    <%= n.link_address %> <%= link_to "삭제", news_path(n.id), :method => :delete, :class => 'button round' %>
+  </li>
+  <% end %>
+</ul>
+
+<%= link_to "완료", root_path, :class => 'button round' %>

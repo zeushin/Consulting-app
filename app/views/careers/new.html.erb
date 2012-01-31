@@ -1,0 +1,39 @@
+<h1>Add Careers</h1>
+
+<%= form_for(@career) do |f| %>
+<div class="field">
+  <%= f.text_field :since_date %>
+  부터
+</div>
+<div class="field">
+  <%= f.text_field :until_date %>
+  까지
+</div>
+<div class="field">
+  <%= f.label :경력내용 %>
+  <%= f.text_field :substance %>
+</div>
+
+<%= f.hidden_field :consultant_id, :value => @consultant_id %>
+
+<div class="actions">
+  <%= f.submit "Add", :class => 'button round' %>
+</div>
+
+<% end %>
+
+<ul class="">
+  <% @careers.each do |career| %>
+  <li>
+    <div>
+      <span>경력 : </span><span> <%= career.since_date %> ~ <%= career.until_date %></span>
+    </div>
+    <div>
+      <span>경력내용 : </span><span><%= career.substance %></span>
+    </div>
+    <%= link_to "삭제", career_path(career.id), :method => :delete, :class => 'button round' %>
+  </li>
+  <% end %>
+</ul>
+
+<%= link_to "다음", new_book_path(:consultant_id => @consultant_id), :class => 'button round' %>

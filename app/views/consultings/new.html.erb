@@ -1,0 +1,21 @@
+<h1>Add Consulting</h1>
+
+<%= form_for(@consulting) do |f| %>
+<div class="field">
+  <%= f.label :주제 %><br />
+  <%= f.text_field :topic %>
+</div>
+<div class="field">
+  <%= f.label :상담사 %><br />
+  <% if @consultants.count > 0 %>
+  <% @consultants.each do |consultant| %>
+  <%= f.radio_button :consultant_id, consultant.id %> <%= consultant.name %><br />
+  <% end %>
+  <% else %>
+  <p>등록된 상담사가 없습니다. 상담사를 추가해 주세요!!</p>
+  <% end %>
+</div>
+<div class="actions">
+  <%= f.submit "다음", :class => 'button round' %>
+</div>
+<% end %>

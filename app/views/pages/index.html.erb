@@ -1,0 +1,41 @@
+<h1>Consulting</h1>
+
+<ul class="">
+  <% @consultings.each do |c| %>
+  <li class="">
+    <div class="">
+      <%= c.topic %>
+    </div>
+    <div class="">
+      <%= link_to "#{c.consultant.name}", consultant_path(c.consultant_id) %>
+    </div>
+    
+    <div class="">
+      <div class="">
+        주의할점
+      </div>
+      <ul class="">
+        <% c.cautions.each do |caution| %>
+	<li class="">
+	  <%= caution.content %> <%= link_to "삭제", caution_path(caution.id), :method => :delete %>
+	</li>
+	<% end %>	  
+      </ul>
+    </div>
+    
+    <div class="">
+      <div class="">
+        관련 자료 뉴스 링크
+      </div>
+      <ul class="">
+        <% c.news.each do |n| %>
+	<li class="">
+	  <%= n.link_address %> <%= link_to "삭제", news_path(n.id), :method => :delete %>
+	</li>
+	<% end %>	  
+      </ul>
+    </div>
+  </li>
+  <%= link_to "이 상담 삭제", consulting_path(c.id), :method => :delete %>
+  <% end %>
+</ul>

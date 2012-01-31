@@ -1,0 +1,27 @@
+<h1>주의할점</h1>
+
+<%= form_for(@caution) do |f| %>
+<div class="field">
+  <%= f.label :내용 %><br />
+  <%= f.text_field :content %>
+</div>
+
+<%= f.hidden_field :consulting_id, :value => @consulting_id %>
+
+<div class="actions">
+  <%= f.submit "추가", :class => 'button round' %>
+</div>
+
+<% end %>
+
+
+<ul class="">
+  <% @cautions.each do |caution| %>
+  <li class="">
+    <%= caution.content %>
+    <%= link_to "삭제", caution_path(caution.id), :method => :delete, :class => 'button round' %>
+  </li>
+  <% end %>
+</ul>
+
+<%= link_to "다음", new_news_path(:consulting_id => @consulting_id), :class => 'button round' %>

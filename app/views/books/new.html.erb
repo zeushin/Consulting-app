@@ -1,0 +1,52 @@
+<h1>Add Books</h1>
+
+<%= form_for(@book) do |f| %>
+<div class="field">
+  <%= f.label :책제목 %>
+  <%= f.text_field :subject %>
+</div>
+<div class="field">
+  <%= f.label :작가 %>
+  <%= f.text_field :author %>
+</div>
+<div class="field">
+  <%= f.label :출판사 %>
+  <%= f.text_field :publisher %>
+</div>
+<div class="field">
+  <%= f.label :발행년도 %>
+  <%= f.text_field :year %>
+</div>
+
+<%= f.hidden_field :consultant_id, :value => @consultant_id %>
+
+<div class="actions">
+  <%= f.submit "추가", :class => 'button round' %>
+</div>
+
+<% end %>
+
+
+<ul class="">
+  <% @books.each do |book| %>
+  <li>
+    <div>
+      <span>책제목 : </span><span><%= book.subject %></span>
+    </div>
+    <div>
+      <span>작가 : </span><span><%= book.author %></span>
+    </div>
+    <div>
+      <span>출판사 : </span><span><%= book.publisher %></span>
+    </div>
+    <div>
+      <span>발행년도 : </span><span><%= book.year %></span>
+    </div>
+    <%= link_to "삭제", book_path(book.id), :method => :delete, :class => 'button round' %>
+  </li>
+  <% end %>
+</ul>
+
+
+
+<%= link_to "완료!!", root_path, :class => 'button round' %>
