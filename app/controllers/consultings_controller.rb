@@ -14,12 +14,18 @@ class ConsultingsController < ApplicationController
     if @consulting.save
       redirect_to new_caution_path(:consulting_id => @consulting.id)
     else
+      @consulting = Consulting.new
       render 'new'
     end
   end
 
   def update
     @consulting = Consulting.find_by_id(params[:id])
+
+    @consulting.topic = params[:consulting][:topic]
+    @consulting.consultant_id = params[:consulting][:consultant_id]
+    @consulting.detail = params[:consulting][:detail]
+    @consulting.movie = params[:consulting][:movie]
 
     if @consulting.save
       redirect_to new_caution_path(:consulting_id => @consulting.id)

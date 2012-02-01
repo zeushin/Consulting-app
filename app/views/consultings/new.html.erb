@@ -15,6 +15,14 @@
   <p>등록된 상담사가 없습니다. 상담사를 추가해 주세요!!</p>
   <% end %>
 </div>
+<div class="field">
+  <%= f.label :상세 %><br />
+  <%= f.text_area :detail %>
+</div>
+<div class="field">
+  <%= f.label :동영상 %><br />
+  <%= f.text_field :movie %>
+</div>
 <div class="actions">
   <%= f.submit "다음", :class => 'button round' %>
 </div>

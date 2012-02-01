@@ -13,7 +13,14 @@ class PagesController < ApplicationController
   end
 
   def import_json
+    json = params[:upload]
+    puts '======================'
+    render :json => json.to_json
+  end
 
+  def export_xml
+    @consultings = Consulting.all
+    render :xml => @consultings.to_xml(:include => {:cautions => {}, :news => {}, :consultant => {:include => {:careers => {}, :books => {}}}})
   end
 
 end

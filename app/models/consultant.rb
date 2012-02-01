@@ -9,7 +9,7 @@ class Consultant < ActiveRecord::Base
   private
   def create_photo_path
     unless self.photo
-      self.photo = "#{self.id} - #{self.name}"
+      self.photo = "pic_#{self.id}"
       self.save
     end
   end

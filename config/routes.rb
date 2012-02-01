@@ -6,6 +6,8 @@ ConsultingApp::Application.routes.draw do
   match '/addbooks', :to => 'books#new'
 
   match '/export', :to => 'pages#export_json'
+  match '/xml', :to => 'pages#export_xml'
+  match '/import', :to => 'pages#import_json'
 
   resources :consultants
   resources :careers

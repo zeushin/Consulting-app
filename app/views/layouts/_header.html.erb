@@ -1,17 +1,22 @@
 <header>
-  <%= link_to "H O M E", root_path, :class => 'round home' %>
-  <div class="header-right">
-  <nav class="round">
-    <ul class="">
-      <li class="">
-	<%= link_to "Import JSON" %>
-      </li>
-      <li class="">
-	<%= link_to "Export JSON", export_path %>
-      </li>
-    </ul>
-  </nav>
-  <%= link_to "상담사추가!!", new_consultant_path, :class => 'button round' %>
-  <%= link_to "컨설팅추가!!", new_consulting_path, :class => 'button round' %>
+  <div>
+    <%= link_to "H O M E", root_path, :class => 'round home' %>
+    <div class="header-right">
+      <nav class="round">
+	<ul class="">
+	  <li class="">
+	    <%= link_to "Export JSON", export_path %>
+	  </li>
+	  <li class="">
+	    <%= link_to "XML", xml_path %>
+	  </li>
+	</ul>
+      </nav>
+      <%= link_to "상담사추가!!", new_consultant_path, :class => 'round add' %>
+      <%= link_to "컨설팅추가!!", new_consulting_path, :class => 'round add' %>
+    </div>
+  </div>
+  <div class="file-upload">
+    
   </div>
 </header>

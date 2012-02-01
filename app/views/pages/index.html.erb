@@ -17,7 +17,7 @@
       <ul class="">
         <% c.cautions.each do |caution| %>
 	<li class="">
-	  <%= caution.content %> <%= link_to "삭제", caution_path(caution.id), :method => :delete %>
+	  <%= caution.content %> <%= link_to "삭제", caution_path(caution.id), :method => :delete, :class => 'button round' %>
 	</li>
 	<% end %>	  
       </ul>
@@ -30,12 +30,13 @@
       <ul class="">
         <% c.news.each do |n| %>
 	<li class="">
-	  <%= n.link_address %> <%= link_to "삭제", news_path(n.id), :method => :delete %>
+	  <%= n.link_address %> <%= link_to "삭제", news_path(n.id), :method => :delete, :class => 'button round' %>
 	</li>
 	<% end %>	  
       </ul>
     </div>
   </li>
-  <%= link_to "이 상담 삭제", consulting_path(c.id), :method => :delete %>
+  <%= link_to "수정", new_consulting_path(:consulting_id => c.id), :class => 'button round' %>
+  <%= link_to "삭제", consulting_path(c.id), :method => :delete, :class => 'button round' %>
   <% end %>
 </ul>
